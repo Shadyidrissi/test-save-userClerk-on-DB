@@ -5,6 +5,8 @@ import { createUser } from "../../../../actions/user.action";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
+  console.log("Webhook endpoint is being hit");
+
   // You can find this in the Clerk Dashboard -> Webhooks -> choose the endpoint
   const WEBHOOK_SECRET = process.env.WEBHOOK_SECRET;
 
@@ -54,6 +56,7 @@ export async function POST(req: Request) {
   // For this guide, you simply log the payload to the console
   const { id } = evt.data;
   const eventType = evt.type;
+  console.log( evt.data,evt.type)
 
   if (eventType === "user.created") {
     const { id, email_addresses, image_url, first_name, last_name, username } =
