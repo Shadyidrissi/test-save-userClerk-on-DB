@@ -8,6 +8,7 @@ const ClientPage = () => {
   if (!isLoaded || !isSignedIn) {
     return null;
   }
+  console.log(process.env.WEBHOOKS_SECRET)
   return (
     <div className="h-full flex flex-col items-center justify-center text-2xl">
       Hello, {user.firstName} welcome to Clerk
